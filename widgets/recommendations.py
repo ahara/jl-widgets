@@ -18,7 +18,7 @@ def load_data():
 
 def print_laptop(laptop) -> st.container:
     c = st.container()
-    col1, col2 = c.columns(2)
+    col1, col2 = c.columns(spec=[0.3, 0.7])
     col1.image(laptop["url_image"])
     #col2.link_button(f'{laptop["name"]}', laptop["url_referal"], type='primary')
     col2.subheader(f'{laptop["name"]}')

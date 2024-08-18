@@ -28,3 +28,9 @@ for _, row in df.iterrows():
 
 # st.markdown(st.query_params)
 # referrer
+
+from streamlit.logger import get_logger
+
+logger = get_logger(__name__)
+
+logger.info(st.query_params)

@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-st.header("test")
+st.header("Rekomendowane laptopy")
 
 
 @st.cache_data
@@ -26,4 +26,5 @@ df = load_data()
 for _, row in df.iterrows():
     print_laptop(row)
 
-st.markdown(st.query_params)
+# st.markdown(st.query_params)
+# referrer

@@ -30,7 +30,6 @@ def filter_data_with_query_params(d):
     _df = filter_data_with_kv(_df, 'has_gpu', ('y', 'n'))
     _df = filter_data_with_kv(_df, 'is_apple', ('y', 'n'))
     _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2'))
-    print(_df)
 
     return _df
 

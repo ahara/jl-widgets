@@ -4,15 +4,36 @@ from streamlit.logger import get_logger
 
 
 logger = get_logger(__name__)
+logger.info(f"Loaded data for: {st.query_params}")
 
-st.header("Rekomendowane laptopy")
+#st.header("Rekomendowane laptopy")
 
 
 @st.cache_data
 def load_data():
-    logger.info(f"Loaded data for: {st.query_params}")
     data_path = './data/laptop_recommendation.csv'
     _df = pd.read_csv(data_path)
+    return _df
+
+
+def filter_data_with_kv(d, key, accepted_values):
+    _df = d.copy()
+    value = st.query_params.get(key, None)
+    if value in accepted_values:
+        _df = _df.query(f"{key} == @value")
+        print(_df)
+
+    return _df
+
+
+def filter_data_with_query_params(d):
+    _df = d.copy()
+    _df = filter_data_with_kv(_df, 'price_range', ('low', 'mid', 'high'))
+    _df = filter_data_with_kv(_df, 'has_gpu', ('y', 'n'))
+    _df = filter_data_with_kv(_df, 'is_apple', ('y', 'n'))
+    _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2'))
+    print(_df)
+
     return _df
 
 
@@ -29,6 +50,7 @@ def print_laptop(laptop) -> st.container:
 
 
 df = load_data()
+df = filter_data_with_query_params(df)
 
 for _, row in df.iterrows():
     print_laptop(row)

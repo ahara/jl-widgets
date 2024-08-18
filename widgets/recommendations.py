@@ -26,4 +26,4 @@ df = load_data()
 for _, row in df.iterrows():
     print_laptop(row)
 
-print(st.query_params)
+st.markdown(st.query_params)

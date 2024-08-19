@@ -29,7 +29,7 @@ def filter_data_with_query_params(d):
     _df = filter_data_with_kv(_df, 'price_range', ('low', 'mid', 'high'))
     _df = filter_data_with_kv(_df, 'has_gpu', ('y', 'n'))
     _df = filter_data_with_kv(_df, 'is_apple', ('y', 'n'))
-    _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2'))
+    _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2', 's3'))
 
     return _df
 

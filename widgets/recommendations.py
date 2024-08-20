@@ -19,17 +19,16 @@ def filter_data_with_kv(d, key, accepted_values):
     value = st.query_params.get(key, None)
     if value in accepted_values:
         _df = _df.query(f"{key} == @value")
-        print(_df)
 
     return _df
 
 
 def filter_data_with_query_params(d):
     _df = d.copy()
-    _df = filter_data_with_kv(_df, 'price_range', ('low', 'mid', 'high'))
+    _df = filter_data_with_kv(_df, 'price_range', ('low', 'mid', 'high', 'any'))
     _df = filter_data_with_kv(_df, 'has_gpu', ('y', 'n'))
     _df = filter_data_with_kv(_df, 'is_apple', ('y', 'n'))
-    _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2', 's3'))
+    _df = filter_data_with_kv(_df, 'laptop_set', ('s1', 's2', 's3', 's4', 's5'))
 
     return _df
 

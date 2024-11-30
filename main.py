@@ -3,7 +3,7 @@ import streamlit as st
 # Define page structure
 pg = st.navigation(
     [
-        st.Page("widgets/recommendations.py", title="Rekomendacje")
+        st.Page("widgets/recommendations.py", title="Rekomendacje Laptopów")
     ],
     position="hidden"
 )
